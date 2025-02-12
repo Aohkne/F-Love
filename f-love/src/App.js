@@ -1,9 +1,15 @@
-import Nav from './components/Nav/Nav';
+import { RouterProvider } from 'react-router-dom';
+import { router } from './routes';
+import { useEffect } from 'react';
 
 function App() {
+  useEffect(() => {
+    console.log('💖 web chưa tối ưu, người làm web đang bị deadline dí');
+  }, []);
+
   return (
     <div className='App'>
-      <Nav />
+      <RouterProvider router={router} />
     </div>
   );
 }

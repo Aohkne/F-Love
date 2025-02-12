@@ -1,0 +1,92 @@
+@import '../../styles/variable.scss';
+@import '../../styles/mixin.scss';
+
+.clock-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+
+  .wrapper {
+    width: 50%;
+    padding: 20px 10px 0px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px 0px $black-color;
+    background-color: $white-color;
+
+    .title {
+      font-size: 3rem;
+      padding: 5px 15px;
+      border-radius: 10px;
+      font-weight: 400;
+      margin-bottom: 10px;
+      color: $primary-color;
+      background-color: $secondary-color;
+
+      @include respond-below(lg) {
+        font-size: 2.5rem;
+      }
+      @include respond-below(md) {
+        border-radius: 5px;
+        font-size: 2rem;
+      }
+    }
+
+    .clock-content {
+      display: flex;
+      justify-content: center;
+      color: $primary-color;
+
+      .clock-item {
+        font-size: 2.5rem;
+
+        span {
+          display: inline-block;
+          min-width: 100px;
+          margin: 0 10px;
+          font-size: 2.5rem;
+
+          @include respond-below(lg) {
+            margin: 0 5px;
+          }
+
+          @include respond-below(md) {
+            min-width: 60px;
+            font-size: 2rem;
+            margin: 0 5px;
+          }
+          @include respond-below(xs) {
+            margin: 0 2px;
+            min-width: 45px;
+          }
+        }
+
+        h2 {
+          color: $light-primary-color;
+        }
+
+        & + .clock-item {
+          margin-left: 20px;
+
+          @include respond-below(md) {
+            margin-left: 15px;
+          }
+        }
+
+        @include respond-below(md) {
+          font-size: 2rem;
+        }
+      }
+    }
+
+    @include respond-below(lg) {
+      width: 75%;
+    }
+    @include respond-below(md) {
+      width: 95%;
+    }
+  }
+}

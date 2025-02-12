@@ -1,0 +1,37 @@
+@import '../../styles/variable.scss';
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 5px 0;
+  margin: 35px 0 5px;
+
+  .item {
+    display: flex;
+    align-items: center;
+    img {
+      margin: 0 15px;
+      width: 25px;
+      cursor: pointer;
+
+      &:hover {
+        animation: bound 0.5s infinite ease-in-out;
+      }
+    }
+
+    .heart-icon {
+      width: 30px;
+    }
+  }
+}
+
+//Animation
+@keyframes bound {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}

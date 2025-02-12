@@ -1,0 +1,45 @@
+@import '../../styles/variable.scss';
+@import '../../styles/mixin.scss';
+
+.wrapper {
+  display: flex;
+  width: 50%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  box-shadow: 1px 1px 5px 0px $black-color;
+  background-color: $white-color;
+
+  img {
+    height: 35px;
+
+    @include respond-below(md) {
+      height: 25px;
+    }
+  }
+
+  .title {
+    flex: 1;
+    text-align: center;
+    padding: 0 10px;
+    font-size: 2.5rem;
+    color: $primary-color;
+
+    @include respond-below(lg) {
+      font-size: 2.2rem;
+    }
+
+    @include respond-below(md) {
+      font-size: 1.8rem;
+    }
+  }
+
+  @include respond-below(lg) {
+    width: 75%;
+  }
+  @include respond-below(md) {
+    width: 95%;
+  }
+}
