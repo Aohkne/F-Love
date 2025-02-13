@@ -1,0 +1,46 @@
+@import '../../styles/variable.scss';
+@import '../../styles/mixin.scss';
+
+.wrapper {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  color: white;
+  transition: all 0.3s ease-in-out;
+
+  @include respond-below(md) {
+    bottom: 30px;
+    left: 30px;
+  }
+
+  @include respond-below(xs) {
+    bottom: 50px;
+    left: 10px;
+    right: 10px;
+    justify-content: center;
+  }
+
+  .slider {
+    width: 120px;
+    margin-right: 10px;
+
+    @include respond-below(xs) {
+      width: 90px;
+    }
+  }
+
+  .volume-text {
+    color: $primary-color;
+    font-size: 14px;
+
+    @include respond-below(xs) {
+      font-size: 12px;
+    }
+  }
+}

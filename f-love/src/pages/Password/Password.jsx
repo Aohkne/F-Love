@@ -9,7 +9,7 @@ const keys = [
   ['1', '2', '3'],
   ['4', '5', '6'],
   ['7', '8', '9'],
-  ['#', '0', 'DEL']
+  ['DEL', '0', '⏎']
 ];
 
 function Password() {
@@ -19,7 +19,7 @@ function Password() {
   const handleKeyPress = (key) => {
     if (key === 'DEL') {
       setPassword(password.slice(0, -1));
-    } else if (key === '#') {
+    } else if (key === '⏎') {
       if (password === '1402') {
         navigate('/clock');
       } else {
