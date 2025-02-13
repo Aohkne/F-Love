@@ -24,13 +24,15 @@ function MusicPlayer() {
       newSound.stop();
       newSound.unload();
     };
-  }, [volume]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     if (sound) {
       sound.volume(volume);
     }
-  }, [volume, sound]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [volume]);
 
   return (
     <div className={cx('wrapper')}>

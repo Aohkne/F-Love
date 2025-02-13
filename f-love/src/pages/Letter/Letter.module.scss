@@ -102,7 +102,7 @@
         }
 
         @include respond-below(xs) {
-          font-size: 1.3rem;
+          font-size: 1.2rem;
         }
       }
 
@@ -124,6 +124,7 @@
     }
     @include respond-below(md) {
       width: 95%;
+      height: 60%;
     }
   }
 }
