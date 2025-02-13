@@ -9,9 +9,22 @@ const cx = classNames.bind(styles);
 function Album() {
   const [isOpen, setIsOpen] = useState(false);
   const [data, setData] = useState([]);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const toggleOverlay = () => {
     setIsOpen(!isOpen);
+    setSelectedImage(null);
+  };
+
+  const handleImageClick = (imgSrc) => {
+    setSelectedImage(imgSrc);
+  };
+
+  const closeImage = (e) => {
+    if (e.target.classList.contains(cx('overlay'))) {
+      setSelectedImage(null);
+      setIsOpen(false);
+    }
   };
 
   useEffect(() => {
@@ -30,17 +43,29 @@ function Album() {
       </div>
 
       {isOpen && (
-        <div className={cx('overlay')}>
-          <div className={cx('slideshow')}>
+        <div className={cx('overlay')} onClick={closeImage}>
+          <div className={cx('slideshow')} onClick={(e) => e.stopPropagation()}>
             <span className={cx('close-btn')} onClick={toggleOverlay}>
               &times;
             </span>
             <div className={cx('slides')}>
               {data.map((item, index) => (
-                <img src={item.img} alt={`img ${index + 1}`} key={index} />
+                <img
+                  src={item.img}
+                  alt={`img ${index + 1}`}
+                  key={index}
+                  onClick={() => handleImageClick(item.img)}
+                  className={selectedImage === item.img ? cx('enlarged') : ''}
+                />
               ))}
             </div>
           </div>
+        </div>
+      )}
+
+      {selectedImage && (
+        <div className={cx('image-overlay')} onClick={() => setSelectedImage(null)}>
+          <img src={selectedImage} alt='Enlarged view' className={cx('image-enlarged')} />
         </div>
       )}
     </div>
