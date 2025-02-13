@@ -20,16 +20,10 @@ function Letter() {
               <p>💖 HAPPY VALENTINE’S DAY 💖</p>
               <p>
                 Ngày Valentine không chỉ dành riêng cho những cặp đôi mà còn là dịp để chúng ta lan tỏa yêu thương đến
-                bạn bè, đồng đội và những người đã đồng hành cùng mình trên mọi chặng đường.
-              </p>
-
-              <p>
+                bạn bè, đồng đội và những người đã đồng hành cùng mình trên mọi chặng đường.<br></br>
                 🌟 FCoder xin gửi lời chúc đến toàn thể thành viên trong CLB – những người đam mê công nghệ và luôn sáng
                 tạo không ngừng. Chúc các bạn có một ngày Valentine tràn đầy niềm vui, nhận được thật nhiều tình yêu
-                thương và luôn giữ vững đam mê của mình!
-              </p>
-
-              <p>
+                thương và luôn giữ vững đam mê của mình!<br></br>
                 💙 Dù là coder hay designer, dù là backend hay frontend, thì tình yêu với công nghệ vẫn luôn kết nối
                 chúng ta lại với nhau. Hãy tiếp tục lan tỏa nhiệt huyết và xây dựng một cộng đồng mạnh mẽ hơn nữa nhé!
               </p>
