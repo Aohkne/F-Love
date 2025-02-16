@@ -1,14 +1,17 @@
+@use 'sass:math';
+
+// breakpoint list
+$breakpoints: (
+  xs: 480px,
+  sm: 576px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1200px
+);
+
 @mixin respond-below($breakpoint) {
-  @if $breakpoint == lg {
-    @media (max-width: 1024px) {
-      @content;
-    }
-  } @else if $breakpoint == md {
-    @media (max-width: 768px) {
-      @content;
-    }
-  } @else if $breakpoint == xs {
-    @media (max-width: 480px) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (max-width: map-get($breakpoints, $breakpoint)) {
       @content;
     }
   }
