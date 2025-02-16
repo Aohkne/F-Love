@@ -36,15 +36,30 @@ function Clock() {
         <h2 className={cx('title')}>How long we have been together ?</h2>
         <div className={cx('clock-content')}>
           <div className={cx('clock-item')}>
-            <span>{days} </span>:<h2>Days</h2>
+            <span>{days} </span>
+            <h2>Days</h2>
+          </div>
+
+          <div className={cx('divider')}>
+            <span>:</span>
           </div>
 
           <div className={cx('clock-item')}>
-            <span>{String(hours).padStart(2, '0')}</span>:<h2>Hrs</h2>
+            <span>{String(hours).padStart(2, '0')}</span>
+            <h2>Hrs</h2>
+          </div>
+
+          <div className={cx('divider')}>
+            <span>:</span>
           </div>
 
           <div className={cx('clock-item')}>
-            <span>{String(minutes).padStart(2, '0')}</span>:<h2>Mins</h2>
+            <span>{String(minutes).padStart(2, '0')}</span>
+            <h2>Mins</h2>
+          </div>
+
+          <div className={cx('divider')}>
+            <span>:</span>
           </div>
 
           <div className={cx('clock-item')}>
