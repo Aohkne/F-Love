@@ -6,40 +6,78 @@
   width: 50%;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 10px;
-  margin: 10px 0;
+  padding: clamp(5px, 1vw, 10px) clamp(10px, 2vw, 20px);
+  margin: clamp(5px, 1.5vw, 10px) 0;
   border-radius: 5px;
-  box-shadow: 1px 1px 5px 0px $black-color;
+  box-shadow: 1px 1px 5px 0px rgba($black-color, 0.2);
   background-color: $white-color;
+  transition: all 0.3s ease;
 
   img {
     height: 35px;
+    width: auto;
+    object-fit: contain;
 
     @include respond-below(md) {
-      height: 25px;
+      height: clamp(20px, 4vw, 25px);
+    }
+
+    @include respond-below(xs) {
+      height: 20px;
     }
   }
 
   .title {
     flex: 1;
     text-align: center;
-    padding-right: 3rem ;
+    padding-right: 3rem;
     font-size: 2.5rem;
     color: $primary-color;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @include respond-below(xl) {
+      font-size: 2.3rem;
+      padding-right: 2rem;
+    }
 
     @include respond-below(lg) {
       font-size: 2.2rem;
+      padding-right: 1.5rem;
     }
 
     @include respond-below(md) {
       font-size: 1.6rem;
+      padding-right: 1rem;
     }
+
+    @include respond-below(xs) {
+      font-size: 1.4rem;
+      padding-right: 0.5rem;
+      white-space: normal;
+    }
+  }
+
+  @include respond-below(xl) {
+    width: 65%;
   }
 
   @include respond-below(lg) {
     width: 75%;
   }
+
   @include respond-below(md) {
+    width: 85%;
+  }
+
+  @include respond-below(xs) {
     width: 95%;
+    padding: 5px;
+    flex-wrap: wrap;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 2px 2px 8px 0px rgba($black-color, 0.3);
   }
 }
