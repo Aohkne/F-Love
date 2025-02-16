@@ -6,87 +6,134 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  min-height: 100vh;
   text-align: center;
+  padding: 1rem;
+  box-sizing: border-box;
 
   .wrapper {
-    width: 50%;
-    padding: 20px 10px 0px;
-    border-radius: 5px;
-    box-shadow: 1px 1px 5px 0px $black-color;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: clamp(1rem, 3vw, 1.5rem);
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 10px rgba($black-color, 0.15);
     background-color: $white-color;
 
-    .title {
-      font-size: 3rem;
-      padding: 5px 15px;
-      border-radius: 10px;
-      font-weight: 400;
-      margin-bottom: 10px;
-      color: $primary-color;
-      background-color: $secondary-color;
-
-      @include respond-below(lg) {
-        font-size: 2.5rem;
-      }
-      @include respond-below(md) {
-        border-radius: 5px;
-        font-size: 2rem;
-      }
+    @include respond-below(lg) {
+      max-width: 700px;
     }
 
-    .clock-content {
+    @include respond-below(md) {
+      max-width: 85%;
+    }
+
+    @include respond-below(xs) {
+      max-width: 95%;
+    }
+
+    @supports (backdrop-filter: blur(10px)) {
+      backdrop-filter: blur(10px);
+      background-color: rgba($white-color, 0.9);
+    }
+  }
+
+  .title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    padding: clamp(0.5rem, 2vw, 1rem) clamp(1rem, 3vw, 1.5rem);
+    border-radius: clamp(0.3125rem, 1vw, 0.625rem);
+    font-weight: 400;
+    margin-bottom: clamp(0.625rem, 2vw, 1rem);
+    color: $primary-color;
+    background-color: $secondary-color;
+    display: inline-block;
+
+    @media (max-width: 480px) {
+      width: 100%;
+      box-sizing: border-box;
+    }
+  }
+
+  .clock-content {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto;
+    justify-content: center;
+    align-items: center;
+    gap: clamp(0.5rem, 2vw, 1.5rem);
+    color: $primary-color;
+    padding: 1rem 0;
+
+    @media (max-width: 600px) {
+      grid-template-columns: repeat(7, auto);
+      gap: 0.25rem;
+    }
+
+    @media (max-width: 480px) {
       display: flex;
+      flex-wrap: wrap;
       justify-content: center;
-      color: $primary-color;
+      gap: 0.5rem;
 
       .clock-item {
-        font-size: 2.5rem;
+        flex: 0 1 calc(50% - 1rem);
+        min-width: auto;
+      }
 
-        span {
-          display: inline-block;
-          min-width: 100px;
-          margin: 0 10px;
-          font-size: 2.5rem;
+      .divider {
+        display: none; // Hide dividers on mobile for better layout
+      }
+    }
 
-          @include respond-below(lg) {
-            margin: 0 5px;
-          }
+    @media (max-width: 320px) {
+      .clock-item {
+        flex: 0 1 100%;
+      }
+    }
+  }
 
-          @include respond-below(md) {
-            min-width: 60px;
-            font-size: 2rem;
-            margin: 0 5px;
-          }
-          @include respond-below(xs) {
-            margin: 0 2px;
-            min-width: 45px;
-          }
-        }
+  .clock-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: clamp(1.25rem, 2.5vw, 2.5rem);
+    padding: clamp(0.25rem, 1vw, 0.5rem);
 
-        h2 {
-          color: $light-primary-color;
-        }
+    span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: clamp(40px, 12vw, 90px);
+      height: clamp(40px, 12vw, 90px);
+      margin: 0 clamp(2px, 0.5vw, 8px);
+      font-size: clamp(1.25rem, 2.5vw, 2.5rem);
+      background-color: rgba($primary-color, 0.05);
+      border-radius: 0.5rem;
+      transition: all 0.3s ease;
 
-        & + .clock-item {
-          margin-left: 20px;
-
-          @include respond-below(md) {
-            margin-left: 15px;
-          }
-        }
-
-        @include respond-below(md) {
-          font-size: 2rem;
+      @media (hover: hover) {
+        &:hover {
+          background-color: rgba($primary-color, 0.1);
         }
       }
     }
 
-    @include respond-below(lg) {
-      width: 75%;
+    h2 {
+      color: $light-primary-color;
+      font-size: clamp(0.875rem, 1.5vw, 1.25rem);
+      margin-top: clamp(0.25rem, 1vw, 0.5rem);
+      white-space: nowrap;
     }
-    @include respond-below(md) {
-      width: 95%;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: $primary-color;
+
+    span {
+      margin: 0 clamp(0.5rem, 1vw, 1rem);
     }
   }
 }
